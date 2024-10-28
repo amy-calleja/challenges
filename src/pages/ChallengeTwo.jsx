@@ -28,9 +28,7 @@ export default function ChallengeTwo() {
         onChange={(e) => setText(e.target.value)}
         style={{ width: "200px" }}
       />
-      <button onClick={handleSubmit} style={{ backgroundColor: "#c69bf2" }}>
-        Reverse!
-      </button>
+      <button onClick={handleSubmit}>Reverse!</button>
     </>
   );
 }

@@ -39,3 +39,7 @@ input:focus {
   border-color: blueviolet; /* Change this to your desired focus color */
   outline: none; /* Remove the default outline */
 }
+
+button {
+  background-color: blueviolet;
+}

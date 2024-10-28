@@ -2,6 +2,7 @@ import "./App.css";
 import ChallengeOne from "./pages/ChallengeOne";
 import ChallengeThree from "./pages/ChallengeThree";
 import ChallengeTwo from "./pages/ChallengeTwo";
+import ChallengeFour from "./pages/ChallengeFour";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Topbar from "./Topbar";
@@ -25,7 +26,8 @@ const MainContent = () => {
         <Route path="/challenge1" element={<ChallengeOne />} />
         <Route path="/challenge2" element={<ChallengeTwo />} />
         <Route path="/challenge3" element={<ChallengeThree />} />
-      </Routes>{" "}
+        <Route path="/challenge4" element={<ChallengeFour />} />
+      </Routes>
       {!isHome && <Topbar />}
     </main>
   );
