@@ -19,6 +19,9 @@ export default function Home() {
         <Link className="links" to={"/challenge4"}>
           Challenge 4
         </Link>
+        <Link className="links" to={"/challenge5"}>
+          Challenge 5
+        </Link>
       </div>
     </div>
   );
