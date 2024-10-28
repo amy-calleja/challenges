@@ -1,0 +1,21 @@
+.Home .links {
+  display: inline-flex;
+  color: #c69bf2;
+  font-size: 25px;
+  font-weight: 300;
+  margin: 25px;
+  transition: 200ms ease-in-out;
+}
+
+.Home .links:hover {
+  color: blueviolet;
+}
+
+.Home h3 {
+  font-weight: 500;
+  line-height: 0;
+}
+
+.Home .nav {
+  margin-top: 90px;
+}

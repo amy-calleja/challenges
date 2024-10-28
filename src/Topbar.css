@@ -1,0 +1,14 @@
+.Topbar .link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #c69bf2;
+  font-size: 20px;
+  font-weight: 400;
+  margin: 25px;
+  transition: 200ms ease-in-out;
+}
+
+.Topbar .link:hover {
+  color: blueviolet;
+}
