@@ -4,6 +4,7 @@ import ChallengeThree from "./pages/ChallengeThree";
 import ChallengeTwo from "./pages/ChallengeTwo";
 import ChallengeFour from "./pages/ChallengeFour";
 import ChallengeFive from "./pages/ChallengeFive";
+import ChallengeSix from "./pages/ChallengeSix";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Topbar from "./Topbar";
@@ -29,6 +30,7 @@ const MainContent = () => {
         <Route path="/challenge3" element={<ChallengeThree />} />
         <Route path="/challenge4" element={<ChallengeFour />} />
         <Route path="/challenge5" element={<ChallengeFive />} />
+        <Route path="/challenge6" element={<ChallengeSix />} />
       </Routes>
       {!isHome && <Topbar />}
     </main>
