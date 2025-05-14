@@ -31,17 +31,15 @@ export default function ChallengeFive() {
         <h3>Fizz Buzz</h3>
         <p>
           Write a program that prints the numbers from 1 to 100. However:
-          <ul style={{ listStyleType: "none" }}>
-            <li>For numbers that are multiples of 3, print "Fizz"</li>
-            <li>For numbers that are multiples of 5, print "Buzz"</li>
-            <li>
-              For numbers that are multiples of both 3 and 5, print "FizzBuzz"
-            </li>
-            <li>
-              If they're not multiples of either 3 or 5, print the number.
-            </li>
-          </ul>
-        </p>
+        </p>{" "}
+        <ul style={{ listStyleType: "none" }}>
+          <li>For numbers that are multiples of 3, print "Fizz"</li>
+          <li>For numbers that are multiples of 5, print "Buzz"</li>
+          <li>
+            For numbers that are multiples of both 3 and 5, print "FizzBuzz"
+          </li>
+          <li>If they're not multiples of either 3 or 5, print the number.</li>
+        </ul>
       </>
 
       <div style={{ margin: "70px 0" }}>

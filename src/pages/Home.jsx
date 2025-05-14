@@ -11,7 +11,7 @@ export default function Home() {
       <div className="nav">
         {pages.map((num, i) => {
           return (
-            <Link className="links" to={`/challenge${num}`}>
+            <Link className="links" to={`/challenge${num}`} key={i}>
               Challenge {num}
             </Link>
           );

@@ -71,6 +71,8 @@ export default function ChallengeEight() {
             500 milliseconds.
           </p>
           <input
+            id="user-search"
+            name="user-search"
             type="text"
             placeholder="Search users..."
             value={searchValue}
@@ -114,6 +116,8 @@ export default function ChallengeEight() {
             typing event.
           </p>
           <input
+            id="user-search2"
+            name="user-search2"
             type="text"
             placeholder="Search users..."
             value={searchValue2}
@@ -125,8 +129,8 @@ export default function ChallengeEight() {
               Select a user:
               <select
                 style={{ margin: "0 10px" }}
-                name="user-select"
-                id="user-select"
+                name="user-selec2t"
+                id="user-select2"
               >
                 {searchValue2 && filteredUsers2.length > 0
                   ? filteredUsers2.map((user) => (
