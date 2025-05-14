@@ -8,6 +8,8 @@ import ChallengeSix from "./pages/ChallengeSix";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Topbar from "./Topbar";
+import ChallengeSeven from "./pages/ChallengeSeven";
+import ChallengeEight from "./pages/ChallengeEight";
 
 const App = () => {
   return (
@@ -31,6 +33,8 @@ const MainContent = () => {
         <Route path="/challenge4" element={<ChallengeFour />} />
         <Route path="/challenge5" element={<ChallengeFive />} />
         <Route path="/challenge6" element={<ChallengeSix />} />
+        <Route path="/challenge7" element={<ChallengeSeven />} />
+        <Route path="/challenge8" element={<ChallengeEight />} />
       </Routes>
       {!isHome && <Topbar />}
     </main>

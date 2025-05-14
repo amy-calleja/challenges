@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 export default function Home() {
-  let pages = [1, 2, 3, 4, 5, 6];
+  let pages = [1, 2, 3, 4, 5, 6, 7, 8];
 
   return (
     <div className="Home">
