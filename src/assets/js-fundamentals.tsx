@@ -1,3 +1,21 @@
+/* This file covers these basic fundamentals:
+  -map
+  -filter
+  -reduce
+  -find
+  -some
+  -every
+  -forEach
+  -spread syntax
+  -destructuring
+  -optional chaining
+  -nullish coalescing
+  -closures
+  -callbacks
+  -promises
+  -async/await
+*/
+
 const numbers = [1, 2, 3, 4, 5];
 
 //map - returns a new array with the results of calling a provided function on every element in the calling array
@@ -64,3 +82,116 @@ const deactivateUser = (users: { id: number; name: string; active: boolean }[], 
     return users.map((user) => user.id === id ? { ...user, active: false } : user);
     // Returns a new array of users with the specified user deactivated (active set to false)
 };
+
+// spread sytax ... - creates SHALLOW copy/merge arrays or objs without mutating original
+const updatedUsers = {
+    ...users,
+    active: false
+}
+const newNumbers = [ ...numbers, 6, 7, 8];
+
+// destructuring - extract vals from objs or arrays
+const [first, second, ...rest] = numbers;
+console.log("First:", first); // 1
+
+const { id, active } = users[0]; 
+console.log(id); // 1
+
+//destructuring in React props params
+function User({name, active}: {name: string, active: boolean}) {
+    return  <div> {name} is {active ? 'active' : 'inactive'} </div>;
+}
+
+//optional chaining '?' - when something may be null or undefined preventing errors
+console.log(users[3]?.name);
+
+//nullish coalescing '??' - returns right side specifically if left side is null or undefined
+const userName = users[3]?.name ?? 'Unknown User';
+console.log(userName); // 'Unknown User'
+
+// '||' check for falsy value (null, undefined, 0, '', false) and returns right side
+const count = 0 || 10
+// returns 10 because 0 is falsy
+
+// closures - function that has access to vars from outer scope where it was created, even after outer func has finished 
+function createCounter() {
+    let count = 0;
+
+    return function() {
+        count++;
+        return count;
+    };
+}
+const counter = createCounter();
+
+console.log(counter()); // 1
+console.log(counter()); // 2
+// createCounter() already finished, but returned func still has access to count var from outer scope, so it can increment and return it
+
+//callbacks - a func passed to another func as an agument, to be executed later
+function greetUser(name: string, callback: (greeting: string) => void) {
+    const greeting= 'Hello, ' + name;
+    callback(greeting);
+}
+
+greetUser('Amy', (greeting) => {
+    console.log(greeting); // Hello, Amy
+});
+
+<Button onClick={()=> handleClick()} /> // func passed to onClick is also a callback, executed when button is clicked
+
+// promises - represents an asynchronous operation that will eventually complete (resolve) or fail (reject)
+// 3 states: pending, fulfilled, rejeted
+
+// .then() - called when promise is fulfilled
+// .catch() - when promise is rejected
+// .finally() -called when promise is settled
+const fetchData = fetch('/api/data')
+    .then((response)=> response.json())
+    .then((data) => {
+    console.log('Data fetched:', data)
+    })
+    .catch((error) => {
+        console.log('error fetcing data:', error);
+    });
+
+//async/await - version writing Promises async manner, just easier to read
+    async function fetchDataAsync(){
+        try {
+            const response = await fetch('/api/data');
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+
+// event loop - JS is single threaded, but can handle async operations using event loop
+// call stack - keeps track of function calls, when a function is called, it is added to the stack, when it returns, it is removed from the stack
+// web APIs - browser provides APIs for async operations like setTimeout, fetch, DOM events
+// task queue - when an async operation is completed, its callback is added to the task queue
+// event loop - continuously checks if the call stack is empty, if it is, it takes the first callback from the task queue and pushes it onto the call stack
+
+//final example of fundamentals combined
+
+const getUser = async () => {
+    const response = await fetch('api/user/1');
+    const user = await response.json();
+
+    return {
+        ...user,
+        dispayName: user.profile?.name ?? 'Anonymous'
+    };
+};
+
+/* 
+^^^the above contains:
+-async/await
+-Promises
+-destructuring opportunities
+-spread syntax
+-optional chaining
+-nullish coalescing
+-closures if getUser captures variables from its surrounding scope
+*/
