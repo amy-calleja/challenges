@@ -56,7 +56,7 @@ const users = [
   { id: 3, name: "Sarah", active: true },
 ];
 /*
-Without AI, implement:
+Implement these functions:
 getActiveUsers()
 getUserById()
 getUserNames()
