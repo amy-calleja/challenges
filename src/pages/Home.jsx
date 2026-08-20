@@ -2,17 +2,51 @@ import { Link } from "react-router-dom";
 import "./Home.css";
 
 export default function Home() {
-  let pages = [1, 2, 3, 4, 5, 6, 7, 8];
+  const pages =
+    [
+      {
+        key: 1,
+        title: "Fibonacci Sequence"
+      },
+      {
+        key: 2,
+        title: "Reverse a String"
+      },
+      {
+        key: 3,
+        title: "Palindromes"
+      },
+      {
+        key: 4,
+        title: "Anagrams"
+      },
+      {
+        key: 5,
+        title: "Fizz Buzz"
+      },
+      {
+        key: 6,
+        title: "Currying"
+      },
+      {
+        key: 7,
+        title: "Local Storage"
+      },
+      {
+        key: 8,
+        title: "Debouncing Methods"
+      }
+    ];
 
   return (
     <div className="Home">
       <h1>Home</h1>
       <h3>Leetcode-style Challenges</h3>
       <div className="nav">
-        {pages.map((num, i) => {
+        {pages.map((page) => {
           return (
-            <Link className="links" to={`/challenge${num}`} key={i}>
-              Challenge {num}
+            <Link className="links" to={`/challenge${page.key}`} key={page.key}>
+              {page.title}
             </Link>
           );
         })}
