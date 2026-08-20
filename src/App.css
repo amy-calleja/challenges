@@ -68,3 +68,31 @@ button {
 .ChallengeEight {
   margin-top: 3rem;
 }
+
+.todos {
+  list-style-type: none;
+  text-align: start;
+}
+
+.todos form {
+  display: inline-block;
+  margin-left: 30px;
+}
+
+.todos button {
+  margin: 20px 0px 10px 0;
+  padding: 10px;
+  line-height: 10px;
+}
+
+.todos .cancel-button {
+  background-color: transparent;
+  border-color: #c69bf2;
+}
+
+.todos label {
+  cursor: pointer;
+  &:hover {
+    font-weight: bold;
+  }
+}

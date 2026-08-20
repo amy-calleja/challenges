@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Topbar from "./Topbar";
 import ChallengeSeven from "./pages/ChallengeSeven";
 import ChallengeEight from "./pages/ChallengeEight";
+import ChallengeNine from './pages/ChallengeNine';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const MainContent = () => {
         <Route path="/challenge6" element={<ChallengeSix />} />
         <Route path="/challenge7" element={<ChallengeSeven />} />
         <Route path="/challenge8" element={<ChallengeEight />} />
+        <Route path='/challenge9' element={<ChallengeNine />} />
       </Routes>
       {!isHome && <Topbar />}
     </main>

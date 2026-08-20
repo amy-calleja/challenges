@@ -35,6 +35,10 @@ export default function Home() {
       {
         key: 8,
         title: "Debouncing Methods"
+      },
+      {
+        key: 9,
+        title: "Todo List"
       }
     ];
 
