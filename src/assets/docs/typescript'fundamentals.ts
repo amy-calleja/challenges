@@ -237,3 +237,35 @@ onSelect = {(product) => {
     console.log(product.price)
 }}
 />
+
+/* keyof */
+// takes an obj type and creates a unione of its property names
+// when I want to make a func or component work with valid props of an obj & keep type safety
+
+type User = {
+    id: string;
+    name: string; 
+    age: number;
+}
+
+// then becomes: 
+// keyof User // 'id | 'name' | 'age'
+
+/* K extends keyof T */
+// oonstrains K so that it must be one of the keys of T
+
+function getProperty<T, K extends keyof T>(
+    object: T,
+    key: K
+) {
+    return object[key]
+}
+/*
+keyof T
+   ↓
+all keys of T
+
+K extends keyof T
+   ↓
+K must be one of those keys
+*/
