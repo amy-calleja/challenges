@@ -1,5 +1,7 @@
 /* Tpescript fundamentals */
 
+import { isDataWithResponseInit } from '@remix-run/router';
+
 // Type for unions & composing types
 type StringOrNumber = string | number;
 
@@ -269,3 +271,136 @@ K extends keyof T
    ↓
 K must be one of those keys
 */
+
+/* type Narrowing */
+// starting with a broad type and using logic to prove to TS the val is more specific type
+// e.g. 
+function print(value: string | number) {
+    // val could be string or number
+    if (typeof value === 'string') {
+        // TS now knows : string
+        console.log(value.toUpperCase())
+    } else {
+        // TS now knows : number
+        console.log(value.toFixed(2))
+    }
+}
+
+// typeof
+// useful for primitive types
+//example above^^.
+
+// instanceof
+// checks whether obj was created from a particular class
+// classes^
+// working with error, date, custom classes, class-based objs
+
+
+/* e.g.
+Dog | Cat
+   ↓
+instanceof Dog
+   ↓
+Dog
+*/
+
+// error example:
+try {
+    // ...
+} catch (error) {
+    if (error instanceof Error) {
+        console.log(error.message);
+    }
+}
+
+// in
+// check whether a prop exists on an obj
+
+type Dog = {
+    name: string;
+    bark: () => void;
+};
+
+type Cat = {
+    name: string;
+    meow: () => void;
+};
+
+function makeSound(animal: Dog | Cat) {
+    if ('bark' in animal) {
+        animal.bark();
+    } else {
+        animal.meow();
+    }
+}
+/*
+Dog | Cat
+   ↓
+"bark" in animal
+   ↓
+Dog
+*/
+
+/* dicriminated unions */
+// a union of obj types that share a common prop
+// usually a literal like a status, TS can use to determine which specific type I'm dealing with
+
+// this type check avoids situations lie isLoading = false, users = undefined, error = undefined
+
+type Result = 
+    | { status: 'loading' }
+    | { status: 'success'; data: User[] }
+    | { status: 'error';  message: string }
+
+
+//... e.g.
+if (result.status === 'success') {
+    result.data;
+}
+
+// why does TS know result.data exists here?
+// Result is a discriminiated union. the status prop is the discriminant
+// once check status is 'success' TS can eliminate the error/other possible vars
+// so it know remaining type contains data
+
+/* 'never' - exhaustive checking */
+// TS checks every possible case then expects there to be nothing left
+function handleResult(result: Result) {
+    switch (result.status) {
+        case 'success':
+            return result.data;
+        case 'error':
+            return result.message;
+        default:
+            return assertNever(result);
+    }
+}
+
+function assertNever(value: never): never é
+throw new Error('Unexpected value');
+
+// never : after handling every possible case, expects thing left
+// if adds after { status: 'cancelled'} TS flags the default case as result is no longer never
+
+/* type guards */
+// create own narrowing function
+// e.g. treat value asa a user if true
+
+type User = {
+    name: string;
+};
+
+function isUser(value: unknown): value is User { // i.e. value is User
+    return (
+        typeof value === 'object' &&
+        value !== null &&
+        'name' in value
+    );
+}
+
+//...
+const data: unknown = getData();
+
+if (isUser(data)) {
+    console.log(data.name);
+}
