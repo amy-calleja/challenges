@@ -1,16 +1,17 @@
-import "./App.css";
-import ChallengeOne from "./pages/ChallengeOne";
-import ChallengeThree from "./pages/ChallengeThree";
-import ChallengeTwo from "./pages/ChallengeTwo";
-import ChallengeFour from "./pages/ChallengeFour";
-import ChallengeFive from "./pages/ChallengeFive";
-import ChallengeSix from "./pages/ChallengeSix";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
-import Home from "./pages/Home";
-import Topbar from "./Topbar";
-import ChallengeSeven from "./pages/ChallengeSeven";
-import ChallengeEight from "./pages/ChallengeEight";
+import './App.css';
+import ChallengeOne from './pages/ChallengeOne';
+import ChallengeThree from './pages/ChallengeThree';
+import ChallengeTwo from './pages/ChallengeTwo';
+import ChallengeFour from './pages/ChallengeFour';
+import ChallengeFive from './pages/ChallengeFive';
+import ChallengeSix from './pages/ChallengeSix';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Home from './pages/Home';
+import Topbar from './Topbar';
+import ChallengeSeven from './pages/ChallengeSeven';
+import ChallengeEight from './pages/ChallengeEight';
 import ChallengeNine from './pages/ChallengeNine';
+import ChallengeTen from './pages/ChallengeTen';
 
 const App = () => {
   return (
@@ -22,21 +23,22 @@ const App = () => {
 
 const MainContent = () => {
   const location = useLocation();
-  const isHome = location.pathname === "/";
+  const isHome = location.pathname === '/';
 
   return (
-    <main className="content">
+    <main className='content'>
       <Routes>
-        <Route path="/" index element={<Home />} />
-        <Route path="/challenge1" element={<ChallengeOne />} />
-        <Route path="/challenge2" element={<ChallengeTwo />} />
-        <Route path="/challenge3" element={<ChallengeThree />} />
-        <Route path="/challenge4" element={<ChallengeFour />} />
-        <Route path="/challenge5" element={<ChallengeFive />} />
-        <Route path="/challenge6" element={<ChallengeSix />} />
-        <Route path="/challenge7" element={<ChallengeSeven />} />
-        <Route path="/challenge8" element={<ChallengeEight />} />
+        <Route path='/' index element={<Home />} />
+        <Route path='/challenge1' element={<ChallengeOne />} />
+        <Route path='/challenge2' element={<ChallengeTwo />} />
+        <Route path='/challenge3' element={<ChallengeThree />} />
+        <Route path='/challenge4' element={<ChallengeFour />} />
+        <Route path='/challenge5' element={<ChallengeFive />} />
+        <Route path='/challenge6' element={<ChallengeSix />} />
+        <Route path='/challenge7' element={<ChallengeSeven />} />
+        <Route path='/challenge8' element={<ChallengeEight />} />
         <Route path='/challenge9' element={<ChallengeNine />} />
+        <Route path='/challenge10' element={<ChallengeTen />} />
       </Routes>
       {!isHome && <Topbar />}
     </main>
