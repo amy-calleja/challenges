@@ -1,23 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ChallengeEleven() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
 
-  const validateFields =
-    name && email.includes('@') && password.length > 8 ? true : false;
+  useEffect(() => {
+    if (!success) {
+      return;
+    }
 
-    const resetFields = () => {
-        setError(null)
-        setSuccess(false)
-        setName('')
-        setEmail('')
-        setPassword('')
-}
+    const showSuccess = setTimeout(() => {
+      setSuccess(false);
+    }, 3000);
+
+    return () => clearTimeout(showSuccess);
+  }, [success]);
+
+  const validateFields =
+    name.trim() &&
+    email.includes('@') &&
+    password.length >= 8 &&
+    password === passwordConfirm
+      ? true
+      : false;
+
+  const errors = {
+    name: !name.trim() ? 'Name is required' : '',
+    email: !email.includes('@') ? 'Invalid email' : '',
+    password:
+      password.length < 8 ? 'Password must be at least 8 characters' : '',
+    passwordConfirm: password !== passwordConfirm ? 'Passwords must match' : '',
+  };
+
+  const resetFields = () => {
+    setError(null);
+    setName('');
+    setEmail('');
+    setPassword('');
+    setPasswordConfirm('');
+  };
 
   const addUser = () => {
     fetch('https://jsonplaceholder.typicode.com/users', {
@@ -31,18 +57,27 @@ export default function ChallengeEleven() {
         password: password,
       }),
     })
-      .then((response) => response.json)
-      .then(() => setSuccess(true))
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to create user');
+        }
+        return response.json();
+      })
+      .then(() => {
+        setSuccess(true);
+        resetFields();
+      })
       .catch(() => setError('Problem submitting user, please try again'))
-      .finally(() => setIsSubmitting(false));
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
-  const handleCreateUser = (e) => {
+  const handleCreateUser = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateFields) {
       setIsSubmitting(true);
-        addUser();
-        resetFields()
+      addUser();
     }
   };
 
@@ -60,30 +95,45 @@ export default function ChallengeEleven() {
       <form onSubmit={handleCreateUser}>
         <input
           type='text'
+          required
           value={name}
           placeholder='Name'
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type='text'
+          required
           value={email}
           placeholder='Email'
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type='password'
+          required
           value={password}
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type='password'
+          required
+          value={passwordConfirm}
+          placeholder='Confirm Password'
+          onChange={(e) => setPasswordConfirm(e.target.value)}
         />
         <button type='submit' disabled={!validateFields}>
           Crreate User
         </button>
       </form>
-      {success && !isSubmitting && !name && <p>Successfully created a new user!</p>}
+      {success && <p className='success'>Successfully created a new user!</p>}
       {error && !isSubmitting && <p>{error}</p>}
-          {isSubmitting && validateFields && <p>Submitting new user request... </p>}
-          {!validateFields && name && email && password && <p>Please validate all fields</p>}
+      {isSubmitting && validateFields && <p>Submitting new user request... </p>}
+
+      {/* error msgs */}
+      {errors.name && <p>{errors.name}</p>}
+      {errors.email && <p>{errors.email}</p>}
+      {errors.password && <p>{errors.password}</p>}
+      {errors.passwordConfirm && <p>{errors.passwordConfirm}</p>}
     </div>
   );
 }
