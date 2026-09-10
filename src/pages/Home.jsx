@@ -47,6 +47,10 @@ export default function Home() {
       key: 11,
       title: 'Create User Form',
     },
+    {
+      key: 12,
+      title: 'Contains Dupliicate',
+    },
   ];
 
   return (
