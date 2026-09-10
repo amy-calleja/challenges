@@ -51,6 +51,10 @@ export default function Home() {
       key: 12,
       title: 'Contains Dupliicate',
     },
+    {
+      key: 13,
+      title: 'Two Sum',
+    },
   ];
 
   return (
