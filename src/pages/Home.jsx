@@ -59,6 +59,10 @@ export default function Home() {
       key: 14,
       title: 'Valid Anagram (v2)',
     },
+    {
+      key: 15,
+      title: 'Moved Zeroes'
+    }
   ];
 
   return (
