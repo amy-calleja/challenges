@@ -55,6 +55,10 @@ export default function Home() {
       key: 13,
       title: 'Two Sum',
     },
+    {
+      key: 14,
+      title: 'Valid Anagram (v2)',
+    },
   ];
 
   return (
