@@ -67,3 +67,15 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.cart li {
+  font-size: small;
+  text-align: start;
+}
+
+.cart-actions {
+  background-color: transparent;
+  border: 1px solid orchid;
+  margin: 2px;
+  padding: 4px 8px;
+}

@@ -71,6 +71,10 @@ export default function Home() {
       key: 17,
       title: 'Valid Parentheses',
     },
+    {
+      key: 18,
+      title: 'Product Search & Cart',
+    },
   ];
 
   return (
