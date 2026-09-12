@@ -61,8 +61,12 @@ export default function Home() {
     },
     {
       key: 15,
-      title: 'Moved Zeroes'
-    }
+      title: 'Moved Zeroes',
+    },
+    {
+      key: 16,
+      title: 'Best Time to Sell & Buy Stock',
+    },
   ];
 
   return (
