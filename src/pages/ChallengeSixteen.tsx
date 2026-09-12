@@ -39,7 +39,7 @@ profit = 5
 
   return (
     <div>
-      <h2>Best Time to Buy & Sell Stock</h2>
+      <h2>Best Time to Buy & Sell Stock 📈</h2>
       <h3>Prices: {prices.join(', ')}</h3>
       <p>
         Given daily stock prices listed in order Monday to Saturday, find the

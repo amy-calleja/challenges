@@ -67,6 +67,10 @@ export default function Home() {
       key: 16,
       title: 'Best Time to Sell & Buy Stock',
     },
+    {
+      key: 17,
+      title: 'Valid Parentheses',
+    },
   ];
 
   return (
