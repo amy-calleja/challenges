@@ -1,6 +1,7 @@
 export default function ChallengeTwelve() {
-  const array1 = [8, 7, 3, 6, 2, 1];
-  const array2 = [1, 2, 5, 9, 3, 2];
+  const array1: number[] = [8, 7, 3, 6, 2, 1];
+  const array2: number[] = [1, 2, 5, 9, 3, 2];
+  const array3: number[] = [2, 6, 6, 1, 0, 3];
 
   // solution one: using nested loops to compare each number with the numbers after it
   const check1 = (array: number[]): boolean => {
@@ -32,6 +33,12 @@ export default function ChallengeTwelve() {
     return false;
   };
 
+  // solution three: using Set to create a new array with unique numbers and compare the length of the new array with the original array
+  const check3 = (array: number[]): boolean => {
+    const noDupes: number[] = [...new Set(array)]; // create a new array with unique numbers using Set
+    return noDupes.length !== array.length; // if the length of the new array is not equal to the original array, there are duplicates, return true; otherwise, return false
+  };
+
   return (
     <div>
       <h2>Contains Duplicate</h2>
@@ -43,6 +50,10 @@ export default function ChallengeTwelve() {
       <>
         <p>[{array2.join(', ')}]</p>
         <b>{check2(array2) ? 'True' : 'False'}</b>
+      </>
+      <>
+        <p>[{array3.join(', ')}]</p>
+        <b>{check3(array3) ? 'True' : 'False'}</b>
       </>
     </div>
   );
