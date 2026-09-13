@@ -79,6 +79,10 @@ export default function Home() {
       key: 19,
       title: 'Merge Sorted Arrays',
     },
+    {
+      key: 20,
+      title: 'Binary Search',
+    },
   ];
 
   return (

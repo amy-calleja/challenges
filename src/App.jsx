@@ -21,6 +21,7 @@ import ChallengeSixteen from './pages/ChallengeSixteen';
 import ChallengeSeventeen from './pages/ChallengeSeventeen';
 import ChallengeEighteen from './pages/ChallengeEighteen';
 import ChallengeNineteen from './pages/ChallengeNineteen';
+import ChallengeTwenty from './pages/ChallengeTwenty';
 
 const App = () => {
   return (
@@ -57,6 +58,7 @@ const MainContent = () => {
         <Route path='/challenge17' element={<ChallengeSeventeen />} />
         <Route path='/challenge18' element={<ChallengeEighteen />} />
         <Route path='/challenge19' element={<ChallengeNineteen />} />
+        <Route path='/challenge20' element={<ChallengeTwenty />} />
       </Routes>
       {!isHome && <Topbar />}
     </main>
