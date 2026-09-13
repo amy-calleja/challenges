@@ -75,6 +75,10 @@ export default function Home() {
       key: 18,
       title: 'Product Search & Cart',
     },
+    {
+      key: 19,
+      title: 'Merge Sorted Arrays',
+    },
   ];
 
   return (
