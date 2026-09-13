@@ -83,6 +83,10 @@ export default function Home() {
       key: 20,
       title: 'Binary Search',
     },
+    {
+      key: 21,
+      title: 'Fibonacci Sequence (v2)',
+    },
   ];
 
   return (
