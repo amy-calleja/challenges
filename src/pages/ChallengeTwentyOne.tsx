@@ -1,4 +1,4 @@
-export default function ChallengeTwenty() {
+export default function ChallengeTwentyOne() {
   let n = 5;
 
   const showSequence = (num: number): number[] => {

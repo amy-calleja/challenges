@@ -22,7 +22,7 @@ import ChallengeSeventeen from './pages/ChallengeSeventeen';
 import ChallengeEighteen from './pages/ChallengeEighteen';
 import ChallengeNineteen from './pages/ChallengeNineteen';
 import ChallengeTwenty from './pages/ChallengeTwenty';
-import ChallengeTwentyOne from './pages/Challenge21';
+import ChallengeTwentyOne from './pages/ChallengeTwentyOne';
 
 const App = () => {
   return (
